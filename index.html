@@ -3,10 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Image Gallery</title>
+    <style>
+      /* Стилі для галереї */
+      .gallery {
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+      }
+
+      .gallery li {
+        margin: 10px;
+      }
+
+      .gallery img {
+        max-width: 200px;
+        height: auto;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        transition: transform 0.2s;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.1);
+      }
+    </style>
   </head>
   <body>
-    <h1>Угадай число</h1>
-    <script type="module" src="./script.js"></script>
+    <h1>Image Gallery</h1>
+    <ul class="gallery" id="imageGallery"></ul>
+
+    <script>
+      // Список посилань на зображення
+      const imageUrls = [
+        "https://img.freepik.com/free-photo/travel-destination-view-from-airplane-window_23-2151382931.jpg",
+        "https://img.freepik.com/free-photo/beautiful-girl-standing-viewpoint-koh-nangyuan-island-near-koh-tao-island-surat-thani-thailand_335224-1094.jpg",
+        "https://img.freepik.com/free-photo/3d-icon-travel-with-airplane_23-2151037350.jpg",
+        "https://img.freepik.com/free-photo/travel-concept-with-baggage_23-2149153260.jpg",
+        "https://img.freepik.com/free-photo/maldives-island_1203-7338.jpg",
+        "https://img.freepik.com/free-photo/young-female-traveler-enjoying-rural-surroundings_23-2149125532.jpg",
+        "https://img.freepik.com/free-photo/landscape-morning-fog-mountains-with-hot-air-balloons-sunrise_335224-794.jpg",
+      ];
+      // Функція для створення розмітки галереї
+      function createImageGallery(urls) {
+        const gallery = document.getElementById("imageGallery");
+        urls.forEach((url) => {
+          const listItem = document.createElement("li");
+          const img = document.createElement("img");
+          img.src = url;
+          img.alt = "Image";
+          listItem.appendChild(img);
+          gallery.appendChild(listItem);
+        });
+      }
+
+      // Виклик функції для створення галереї
+      createImageGallery(imageUrls);
+    </script>
   </body>
 </html>

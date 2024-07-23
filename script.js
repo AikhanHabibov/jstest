@@ -43,17 +43,5 @@
 //let answer = confirm("stul");
 //alert(answer);
 
-let a = Math.floor(Math.random() * 11);
-console.log(a);
-while (true) {
-  let b = prompt("Введите число :");
-
-  if (b < a) {
-    alert("Загаданое число больше");
-  } else if (b > a) {
-    alert("Загаданое число меньше");
-  } else {
-    alert("Угадал");
-    break;
-  }
-}
+const claculate3 = (a, b) => a + b;
+console.log(claculate3(1, 3));
